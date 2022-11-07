@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+    <title>21 Savage Fan Site</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Local</h3>
+
+                <% if (user.local.email) { %>
+                    <p>
+                        <strong>id</strong>: <%= user._id %><br>
+                        <strong>email</strong>: <%= user.local.email %><br>
+                        <strong>password</strong>: <%= user.local.password %>
+                    </p>
+
+                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                <% } %>
+
+            </div>
+        </div>
+        <div class="col-sm-6">
+          <h3>Order from Bag-and-Tag</h3>
+          
+          <h2>$25 for 5 cans-Starter Kit/One Order per Week</h2>
+          <% if (user.local.email) { %>
+            <form action="/messages" method="POST">  
+              <section>
+                <label>>Can # 1</label>
+                <span>White Basic</span>
+                <input type = 'radio' name = 'first' value ='white basic' class="shopping choices"                 />
+                <span>White Magic</span>
+                <input type = 'radio' name = 'first' value ='white magic' class="shopping choices"                 />
+                <span>White Off</span>
+                <input type = 'radio' name = 'first' value ='white off' class="shopping choices"                 />
+              </section>
+              <section>
+                <label>>Can # 2</label>
+                <span>Black Basic</span>
+                <input type = 'radio' name = 'second' value ='black basic' class="shopping choices"                 />
+                <span>Black Tar</span>
+                <input type = 'radio' name = 'second' value ='black tar' class="shopping choices"                 />
+                <span>Black Magic</span>
+                <input type = 'radio' name = 'second' value ='black magic' class="shopping choices"                 />
+              </section>
+              <section>
+                <label>>Can # 3</label>
+                <span>Red</span>
+                <input type = 'radio' name = 'third' value ='red' class="shopping choices"                 />
+                <span>Blue</span>
+                <input type = 'radio' name = 'third' value ='blue' class="shopping choices"                 />
+                <span>Green</span>
+                <input type = 'radio' name = 'third' value ='green' class="shopping choices"                 />
+              </section>
+              <section>
+                <label>>Can # 4</label>
+                <span>Yellow</span>
+                <input type = 'radio' name = 'fourth' value ='secondary fill-yellow' class="shopping choices"                 />
+                <span>Purple</span>
+                <input type = 'radio' name = 'fourth' value ='secondary fill-purple' class="shopping choices"                 />
+                <span>Orange</span>
+                <input type = 'radio' name = 'fourth' value ='secondary fill-orange' class="shopping choices"                 />
+              </section>
+              <section>
+                <label>>Can # 5</label>
+                <span>Background Red Mess</span>
+                <input type = 'radio' name = 'fifth' value ='Background Big-Red Mess' class="shopping choices"                 />
+                <span>Background Big Blue Bang</span>
+                <input type = 'radio' name = 'fifth' value ='Background Big-Blue Bang' class="shopping choices"                 />
+                <span>Background Green Goblin</span>
+                <input type = 'radio' name = 'fifth' value ='Background Big-Green Goblin' class="shopping choices"                 />
+              </section>
+              <section>
+                <label>>Special Gear</label>
+                <span>2 Paint Mask</span>
+                <input type = 'radio' name = 'special' value ='2 paint masks' class="shopping choices"                 />
+                <span>5 Pair of nylon gloves</span>
+                <input type = 'radio' name = 'special' value ='5 pairs of gloves' class="shopping choices"                 />
+                <span>5 recylced caps for spray cans</span>
+                <input type = 'radio' name = 'special' value ='extra caps' class="shopping choices"                 />
+              </section>
+            
+            
+              <input type="text" value="<%= user.local.email %>" name="name">
+              <!--Password for order-->
+              
+              <!--radio for diffrent orders-->
+              <!--radio for diffrent orders-->
+              <!--radio for diffrent orders-->
+              <input class="hidden" type="text" placeholder="message for staff" name="msg">
+              <button type="submit">Submit</button>
+            </form>
+
+
+
+            <ul class="messages">
+            <% for(var i=0; i<messages.length; i++) {%>
+              <li class="message" data-id="<%= messages[i]._id %>"  >
+                <span><%= messages[i].name %></span>
+                <span name="jawn"><%= messages[i]._id %></span>
+          
+                <span><%= messages[i].Message %></span>
+                <span><%=   'Your Order is:  ' + messages[i].first + ' ,'+ messages[i].second + ' ,'+ messages[i].third + ' ,'+ messages[i].fourth + ' ,'+ messages[i].fifth + ' ,'+ messages[i].special + ' at '   %></span>                
+                <input  type= 'text'  placeholder="Jawn" name="Message">
+                <button class='customerService'type= 'submit'> message for staff</button>
+                
+                <span><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+              </li> 
+            <% } %>
+            </ul>
+        </div>
+        <% } %>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
