@@ -29,23 +29,23 @@ module.exports = function(app, passport, db) {
 // order board routes ===============================================================
 
     app.post('/messages', (req, res) => {
-      db.collection('messages').save({name: req.body.name, msg: req.body.msg, first: req.body.first , second: req.body.second , third: req.body.third , fourth: req.body.fourth , fifth: req.body.fifth, special: req.body.special, Message: req.body.Message  }, (err, result) => {
+      db.collection('messages').save({name: req.body.name, msg: req.body.msg, first: req.body.first , second: req.body.second , third: req.body.third , fourth: req.body.fourth , fifth: req.body.fifth, special: req.body.special, messy: req.body.messy  }, (err, result) => {
         if (err) return console.log(err)
         console.log('saved to database')
         res.redirect('/profile')
       })
     })
 
-    app.put('/messages', (req, res) => {
-      
-      console.log(`this is the jawn ${ObjectId(req.body.msg)}`)
+    app.put('/update', (req, res) => {
+      console.log(req.body)
+     
       db.collection('messages')
       .findOneAndUpdate({_id:ObjectId(req.body.msg)}, {
-        $set: { Message: req.body.Message
-          
-      }, 
+        $set: { messy: req.body.messy
+        }  
+      }, {
         sort: {_id: -1},
-        upsert: true
+        upsert: false
       }, (err, result) => { console.log(err)
         if (err) return res.send(err)
         res.send(result)

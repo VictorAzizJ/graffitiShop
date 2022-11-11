@@ -63,14 +63,14 @@ Array.from(updateStaff).forEach(function(element) {
   element.addEventListener('click', function(){
   
     const update = this.parentNode.parentNode.childNodes[1].childNodes[9].value
-  
+    console.log(update)
     const msg = this.parentNode.getAttribute('data-id')
     
-    fetch('messages', {
+    fetch('update', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        'Message': update,
+        'messy': update,
         'msg': msg,
         
       })
