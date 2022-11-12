@@ -1,7 +1,45 @@
 body{
-  padding-top:80px;
-  word-wrap:break-word;
+  background: rgb(86, 56, 156);
+   
 }
-img{
-  height: 200px;
+h3{
+  margin-top: 40px;
+}
+h3 { border: 3px solid rgb(95, 226, 18) ;
+
+}
+
+ul {
+  border: 3px dotted rgb(0, 0, 0);
+  border-radius: 3%;
+}
+
+form{ display: flex; 
+  justify-content: center;
+  
+}
+h3{
+  display: flex; 
+  justify-content: center;
+  font-family: 'Rubik Wet Paint', cursive;
+}
+
+li{
+  display: flex; 
+  justify-content: center;
+}
+
+h1{ display: flex; 
+  justify-content: center;
+  font-family: 'Rubik Wet Paint', cursive;
+
+}
+
+h2{
+  display: flex; 
+  justify-content: center;
+  font-family: 'Rubik Wet Paint', cursive;
+}
+span{
+  font-family: 'Rubik Wet Paint', cursive;
 }
