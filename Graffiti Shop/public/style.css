@@ -6,7 +6,7 @@ h3{
   margin-top: 40px;
 }
 h3 { border: 3px solid rgb(95, 226, 18) ;
-
+justify-content: center;
 }
 
 ul {
@@ -42,4 +42,61 @@ h2{
 }
 span{
   font-family: 'Rubik Wet Paint', cursive;
+}
+input{
+  font-family: 'Rubik Wet Paint', cursive;
+}
+
+.boxOne{
+  display: flex;
+  
+flex-wrap: wrap;
+
+}
+.message{ display: flex;
+flex-wrap: wrap;
+}
+.well{
+  display: flex;
+flex-wrap: wrap;
+font-family: 'Rubik Wet Paint', cursive;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+i{
+  font-size: large;
+  font-weight: bolder;
+}
+
+input{
+  background-color:  rgb(95, 226, 18) ;
+  font-family: 'Rubik Wet Paint', cursive;
+}
+.boxTwo{
+  display: flex;
+  justify-content: center;
+}
+.row{ display: flex;
+  justify-content: center;
+}
+.hidden{
+  display: none;
+}
+button{
+  background-color:  rgb(95, 226, 18) ;
+  font-family: 'Rubik Wet Paint', cursive;
+  border-radius: 3%;
+}
+.messages{
+  margin-top: 5px;
+
+}
+.header{
+  background-image: url('img/blackManSprayPainting.gif');
+  
+  background-position: 0px 190px ;
 }
